@@ -24,7 +24,7 @@ website:
     
 format:
   html:
-    theme: zephy
+    theme: zephyr
     toc: false
 
 editor:
