@@ -1,5 +1,6 @@
 ---
 title: "Angela's R Portfolio"
+engine: knitr
 ---
 
 ### About me
