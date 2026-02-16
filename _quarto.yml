@@ -3,9 +3,9 @@ project:
   output-dir: docs
 
 website:
-  title: "Angela's R Projects"
+  title: "Angela's Data Portfolio"
   description:
-    Course Projects for STA 9750 at Baruch College
+    Home for all of Angela's Data Analytics projects
   site-url: "https://angechoe.github.io/Data-Analysis-Projects/"
   navbar:
     background: success
