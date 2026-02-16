@@ -4,8 +4,7 @@ engine: knitr
 ---
 
 ### About me
-I'm currently a [Business Analytics Master's](https://zicklin.baruch.cuny.edu/academic-programs/graduate/ms/masters-in-ai-and-business-analytics/) Student at Baruch College specializing in Data and Marketing Analytics. These projects showcase how I navigate 
-the whole data analysis process using R! I hope you enjoy. 
+I'm currently a [Business Analytics Master's](https://zicklin.baruch.cuny.edu/academic-programs/graduate/ms/masters-in-ai-and-business-analytics/) Student at Baruch College specializing in Data and Marketing Analytics. These projects showcase how I navigate the whole data analysis process using R! I hope you enjoy. 
 
 ### Courses taken:
 

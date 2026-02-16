@@ -6,7 +6,7 @@ website:
   title: "Angela's R Projects"
   description:
     Course Projects for STA 9750 at Baruch College
-  site-url: "https://angechoe.github.io/R-Projects-STA9750/"
+  site-url: "https://angechoe.github.io/Data-Analysis-Projects/"
   navbar:
     background: primary
     search: false

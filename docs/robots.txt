@@ -1,1 +1,1 @@
-Sitemap: https://angechoe.github.io/R-Projects-STA9750/sitemap.xml
+Sitemap: https://angechoe.github.io/Data-Analysis-Projects/sitemap.xml

@@ -1,0 +1,105 @@
+---
+title: Netflix Top 10 Analysis
+format: 
+  html:
+    theme: simplex
+    toc: true
+    toc-location: right
+    toc-depth: 3
+    code-fold: true
+---
+
+[insert intro about netflix]
+
+[introduce the data]
+something about netflix shares weekly top 10 information about their tc shows and movies on the tudum website. For this analysis, we will be using [insert wee]
+
+## Importing Data
+The following code only downloads the data from Tudum only if it does not exist locally and stores it in the instructed folder. 
+```{r}
+if(!dir.exists(file.path("data", "mp01"))){
+  dir.create(file.path("data", "mp01"), showWarnings=FALSE, recursive=TRUE)
+}
+
+GLOBAL_TOP_10_FILENAME <- file.path("data", "mp01", "global_top10_alltime.csv")
+
+if(!file.exists(GLOBAL_TOP_10_FILENAME)){
+  download.file("https://www.netflix.com/tudum/top10/data/all-weeks-global.tsv", 
+                destfile=GLOBAL_TOP_10_FILENAME)
+}
+
+COUNTRY_TOP_10_FILENAME <- file.path("data", "mp01", "country_top10_alltime.csv")
+
+if(!file.exists(COUNTRY_TOP_10_FILENAME)){
+  download.file("https://www.netflix.com/tudum/top10/data/all-weeks-countries.tsv", 
+                destfile=COUNTRY_TOP_10_FILENAME)}
+```
+Awesome! The data is now ready. Let's clean it up before starting the analysis. 
+
+## Data Cleaning
+
+### Function Creation
+Here I set up two functions: 
+
+1. Library Function- this allows me to call for a package without having to install each one separately. 
+2. Format Function- This cleans up column names for my data tables. 
+```{r}
+#| message: false
+# installing packages function!
+library <- function(pkg){
+    pkg <- as.character(substitute(pkg))
+    options(repos = c(CRAN = "https://cloud.r-project.org"))
+    if(!require(pkg, character.only=TRUE, quietly=TRUE)) install.packages(pkg)
+    stopifnot(require(pkg, character.only=TRUE, quietly=TRUE))
+}
+
+library(tidyverse)
+library(readr)
+library(DT)
+library(stringr)
+
+# Column name formatting function for datatables
+format_titles <- function(df){
+  colnames(df) <- str_replace_all(colnames(df), "_", " ") |> str_to_title()
+  df}
+```
+
+### Inital look at untouched Top 10 Global data 
+```{r}
+#| message: false
+#reading the files
+GLOBAL_TOP_10 <- read_tsv(GLOBAL_TOP_10_FILENAME)
+COUNTRY_TOP_10 <- read_tsv(COUNTRY_TOP_10_FILENAME, na = 'N/A')
+
+GLOBAL_TOP_10 |> 
+  head(n=20) |>
+  datatable(options=list(searching=FALSE, info=FALSE))
+```
+
+I'm replacing the `N/A` string values in the `season_title` into actual `NA` values. 
+```{r}
+GLOBAL_TOP_10 <- GLOBAL_TOP_10 |>
+  mutate(season_title = if_else(season_title == 'N/A', NA_character_, season_title))
+```
+
+Using the `format_titles` function created earlier, the column names are capitalized and the underscores are removed. The numerical values are rounded and separated with commas for a smoother reading experience. 
+```{r}
+GLOBAL_TOP_10 |> 
+  mutate(`runtime_(minutes)` = round(60 * runtime)) |>
+  select(-season_title, -runtime) |>
+  format_titles() |>
+  head(n=20) |>
+  datatable(options=list(searching=FALSE, info=FALSE)) |>
+  formatRound(c('Weekly Hours Viewed', 'Weekly Views'), digits = 0)
+```
+
+## EDA: Country Top 10 
+
+## EDA: Global Top 10 
+
+## Christmas Movies Analysis 
+
+## Korean Drama Analysis 
+
+## Kpop Demon Hunters Success Analysis 
+
