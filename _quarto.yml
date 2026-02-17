@@ -4,8 +4,7 @@ project:
 
 website:
   title: "Angela's Data Portfolio"
-  description:
-    Home for all of Angela's Data Analytics projects
+  description: "Home for all of Angela's Data Analytics projects"
   site-url: "https://angechoe.github.io/Data-Analysis-Projects/"
   navbar:
     background: success
@@ -13,15 +12,15 @@ website:
     right:
       - text: "Home"
         href: index.qmd
-      #- text: "Project 1"
-        #href: mp01.qmd
-      #- text: "Project 2"
-        #href: mp02.qmd
-      #- text: "Project 3"
-        #href: mp03.qmd
-      #- text: "Project 4"
-        #href: mp04.qmd
-    
+      - text: "R Projects"
+        menu:
+          - text: "Netflix Analysis"
+            href: r-projects/mp01.qmd
+      - text: "Python Projects"
+        menu:
+          - text: "Spotify Wrapped Decade Analysis "
+            href: python-projects/py01.qmd
+
 format:
   html:
     theme: litera

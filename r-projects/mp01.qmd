@@ -94,6 +94,9 @@ GLOBAL_TOP_10 |>
 ```
 
 ## EDA: Country Top 10 
+[insert statement how netflix is a global media and entertainment powerhouse. lets explore the global reach]
+
+
 
 ## EDA: Global Top 10 
 
